@@ -1,0 +1,6 @@
+@SYSRENT.API_HostAddress = http://localhost:5128
+
+GET {{SYSRENT.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
