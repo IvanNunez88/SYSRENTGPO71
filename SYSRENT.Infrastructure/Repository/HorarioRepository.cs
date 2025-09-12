@@ -7,20 +7,21 @@ using SYSRENT.Domain.Horario.DTO;
 
 namespace SYSRENT.Infrastructure.Repository;
 
-public class Horario(ISqlDbConnection sqlDbConnection) : IHorario
+public class HorarioRepository(ISqlDbConnection sqlDbConnection) : IHorarioRepository
 {
     private static readonly string DefaultCatalogo = "[SELECCIONAR]";
+
     public async Task<IEnumerable<DtoCatHorario>> ConsulCatHorario()
     {
         List<DtoCatHorario> lstDatos = [new DtoCatHorario(IdHorario: 0, Descrip: DefaultCatalogo, Minutos: 0)];
 
-        const string SQLScript = @"SELECT IdHorario,
+        const string SQLScript = @"SELECT IdHorarioRepository,
                                         Descrip,
                                         Minutos
                                     FROM HORARIO";
         using var Conn = sqlDbConnection.GetConnection();
 
-        IEnumerable<DtoCatHorario> enuDatos = (await Conn.QueryAsync<DtoCatHorario>(SQLScript, null, commandType: CommandType.Text));
+        IEnumerable<DtoCatHorario> enuDatos = await Conn.QueryAsync<DtoCatHorario>(SQLScript, null, commandType: CommandType.Text);
 
         lstDatos.AddRange(enuDatos);
 
@@ -31,4 +32,6 @@ public class Horario(ISqlDbConnection sqlDbConnection) : IHorario
     {
         throw new NotImplementedException();
     }
+
+
 }

@@ -14,10 +14,46 @@ public record GetCatHorarioQuery() : IRequest<DtoResponse<IEnumerable<DtoCatHora
 
 public class GetCatHorarioQueryHandler(IUnitOfWork _unitOfWork) : IRequestHandler<GetCatHorarioQuery, DtoResponse<IEnumerable<DtoCatHorario>>>
 {
-    public Task<DtoResponse<IEnumerable<DtoCatHorario>>> Handle(GetCatHorarioQuery request, CancellationToken cancellationToken)
+    public async Task<DtoResponse<IEnumerable<DtoCatHorario>>> Handle(GetCatHorarioQuery request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+
+        IEnumerable<DtoCatHorario> enuDatos = await _unitOfWork.HorarioRepository.ConsulCatHorario();
+        DtoResponse<IEnumerable<DtoCatHorario>> rsp = new();
+
+        if (enuDatos.Any())
+        {
+            rsp.Status = true;
+            rsp.Value = enuDatos;
+        }
+        else
+        {
+            rsp.Status = false;
+            rsp.Msg = "No se encontro información";
+        }
+        return rsp;
+
     }
 }
 
+
 #endregion
+
+
+
+// public async Task<DtoResponse<IEnumerable<DtoCatHorario>>> Handler(GetCatHorarioQuery request, CancellationToken cancellationToken)
+//     {
+//         IEnumerable<DtoCatHorario> enuDatos = await _unitOfWork.HorarioRepository.ConsulCatHorario();
+//         DtoResponse<IEnumerable<DtoCatHorario>> rsp = new();
+
+//         if (enuDatos.Any())
+//         {
+//             rsp.Status = true;
+//             rsp.Value = enuDatos;
+//         }
+//         else
+//         {
+//             rsp.Status = false;
+//             rsp.Msg = "No se encontro información";
+//         }
+
+//     }

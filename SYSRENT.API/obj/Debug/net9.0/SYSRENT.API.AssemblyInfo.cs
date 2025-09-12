@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SYSRENT.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e723e55ca0a940f1a767f4264d43089f0a0c19e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc7ad3dbff831860fe3f1fc5b0eea6a641fb5e17")]
 [assembly: System.Reflection.AssemblyProductAttribute("SYSRENT.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SYSRENT.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
