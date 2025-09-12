@@ -16,7 +16,6 @@ public class GetCatHorarioQueryHandler(IUnitOfWork _unitOfWork) : IRequestHandle
 {
     public async Task<DtoResponse<IEnumerable<DtoCatHorario>>> Handle(GetCatHorarioQuery request, CancellationToken cancellationToken)
     {
-
         IEnumerable<DtoCatHorario> enuDatos = await _unitOfWork.HorarioRepository.ConsulCatHorario();
         DtoResponse<IEnumerable<DtoCatHorario>> rsp = new();
 

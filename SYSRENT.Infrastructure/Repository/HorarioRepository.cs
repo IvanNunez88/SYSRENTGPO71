@@ -15,10 +15,11 @@ public class HorarioRepository(ISqlDbConnection sqlDbConnection) : IHorarioRepos
     {
         List<DtoCatHorario> lstDatos = [new DtoCatHorario(IdHorario: 0, Descrip: DefaultCatalogo, Minutos: 0)];
 
-        const string SQLScript = @"SELECT IdHorarioRepository,
+        const string SQLScript = @"SELECT IdHorario,
                                         Descrip,
                                         Minutos
                                     FROM HORARIO";
+
         using var Conn = sqlDbConnection.GetConnection();
 
         IEnumerable<DtoCatHorario> enuDatos = await Conn.QueryAsync<DtoCatHorario>(SQLScript, null, commandType: CommandType.Text);

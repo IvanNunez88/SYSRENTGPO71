@@ -2,7 +2,7 @@ namespace SYSRENT.Domain.Horario.DTO;
 
 public sealed record DtoCatHorario
 (
-    int IdHorario,
+    byte IdHorario,
     string Descrip,
-    int Minutos
+    byte Minutos
 );
