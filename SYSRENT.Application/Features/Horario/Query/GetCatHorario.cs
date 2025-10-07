@@ -36,23 +36,3 @@ public class GetCatHorarioQueryHandler(IUnitOfWork _unitOfWork) : IRequestHandle
 
 
 #endregion
-
-
-
-// public async Task<DtoResponse<IEnumerable<DtoCatHorario>>> Handler(GetCatHorarioQuery request, CancellationToken cancellationToken)
-//     {
-//         IEnumerable<DtoCatHorario> enuDatos = await _unitOfWork.HorarioRepository.ConsulCatHorario();
-//         DtoResponse<IEnumerable<DtoCatHorario>> rsp = new();
-
-//         if (enuDatos.Any())
-//         {
-//             rsp.Status = true;
-//             rsp.Value = enuDatos;
-//         }
-//         else
-//         {
-//             rsp.Status = false;
-//             rsp.Msg = "No se encontro información";
-//         }
-
-//     }
