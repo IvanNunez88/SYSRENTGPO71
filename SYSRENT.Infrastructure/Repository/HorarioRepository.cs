@@ -32,9 +32,7 @@ public class HorarioRepository(ISqlDbConnection sqlDbConnection) : IHorarioRepos
             var rows = await Conn.ExecuteAsync(SQLScript, dpParametros, commandType: CommandType.Text);
 
             if (rows <= 0) Result = false;
-
         }
-
         catch
         {
             Result = false;
